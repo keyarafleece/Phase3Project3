@@ -11,6 +11,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.DeleteForever
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -108,12 +109,13 @@ fun HomeListItem(
                         backgroundColor = primaryColor
                     )
                 ) {
-                    Icon(
+
+                   /*** Icon(
                         imageVector = Icons.Filled.DeleteForever,
                         contentDescription = "delete",
                         modifier = Modifier
                             .align(Alignment.CenterVertically)
-                    )
+                    ) ***/
                 }
             }
             Column(Modifier.weight(1f)) {
@@ -164,6 +166,8 @@ fun HomeListItem(
                     )
                 ) {
                     Text("Delete")
+
+                    }
                 }
             }
         }
@@ -176,4 +180,3 @@ fun HomeListItem(
             )
         }
     }
-}

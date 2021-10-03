@@ -15,6 +15,10 @@ import androidx.compose.ui.unit.dp
 import com.example.thisisproject3.home.HomeListItem
 import com.example.thisisproject3.home.ListFile
 import com.example.thisisproject3.home.RowType
+import java.sql.Timestamp
+import java.time.Instant
+import java.time.format.DateTimeFormatter
+
 
 @Composable
 fun HomeListLazy(
@@ -59,10 +63,14 @@ fun ListTest() {
     var editMode : Boolean by remember { mutableStateOf(false) }
     val data = remember {
         mutableStateListOf<ListFile>(
-            ListFile("Test 1", "11/06/2021"),
-            ListFile("Test 2", "11/07/2021"),
-            ListFile("Test 3", "11/08/2021"),
-            ListFile("Test 4", "11/09/2021")
+            ListFile("Reschedule dinner w/Obamas", "03/10/2021"),
+            ListFile("Call Sundar back", "02/10/2021"),
+            ListFile("Submit counter-offer to Google", "01/10/2021"),
+            ListFile("Decline offers from Twitter & Facebook", "02/10/2021"),
+            ListFile("Get Tesla washed", "03/10/2021"),
+            ListFile("Go to Yin Yoga class", "02/10/2021"),
+            ListFile("Start planning hubby's bday dinner", "01/10/2021"),
+            ListFile("Call engraver for hubby's bday Rolex", "02/10/2021")
         )
     }
     Scaffold(
@@ -75,7 +83,7 @@ fun ListTest() {
                     }
                     Spacer(Modifier.weight(1f))
                     NiceButton(title = "Add") {
-                        data.add(ListFile("Test ${data.size + 1}", "14/06/2021"))
+                        data.add(ListFile("Another amazing list item ${data.size + 1}", "${Timestamp(System.currentTimeMillis()/1000)}"))
                     }
                 }
             }

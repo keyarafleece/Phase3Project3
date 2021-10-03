@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.thisisproject3.common.NiceButton
+import java.lang.System.currentTimeMillis
 
 
 data class ListFile(var fileName: String, var created: String)
@@ -28,10 +29,10 @@ fun ListTest() {
     var editMode by remember { mutableStateOf(false) }
     val data = remember {
         mutableStateListOf<ListFile>(
-            ListFile("Test 1", "11/06/2021"),
-            ListFile("Test 2", "11/07/2021"),
-            ListFile("Test 3", "11/08/2021"),
-            ListFile("Test 4", "11/09/2021")
+            ListFile("Reschedule dinner w/Obamas", "03/10/2021"),
+            ListFile("Call Sundar back", "02/10/2021"),
+            ListFile("Submit counter-offer to Google", "01/10/2021"),
+            ListFile("Decline offers from Twitter & Facebook", "02/10/2021")
         )
     }
     Scaffold(
@@ -44,7 +45,9 @@ fun ListTest() {
                     }
                     Spacer(Modifier.weight(1f))
                     NiceButton(title = "Add") {
-                        data.add(ListFile("Test ${data.size + 1}", "14/06/2021"))
+                        data.add(ListFile("Test ${data.size + 1}",
+                            (currentTimeMillis() /1000).toString()
+                        ))
                     }
                 }
             }
